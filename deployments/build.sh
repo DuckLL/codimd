@@ -5,6 +5,7 @@ set -x
 
 if [[ -z $1 || -z $2 ]];then
     echo "build.sh [runtime image] [buildpack image]"
+    echo "build.sh hackmdio/runtime:16.20.2-35fe7e39 hackmdio/buildpack:16.20.2-35fe7e39"
     exit 1
 fi
 
@@ -16,5 +17,5 @@ GIT_TAG=$(git describe --exact-match --tags $(git log -n1 --pretty='%h') 2>/dev/
 
 DOCKER_TAG="${GIT_TAG:-$GIT_SHORT_ID}"
 
-docker build --build-arg RUNTIME=$1 --build-arg BUILDPACK=$2 -t "hackmdio/hackmd:$DOCKER_TAG" -f "$CURRENT_DIR/Dockerfile" "$CURRENT_DIR/.."
+docker build --build-arg RUNTIME=$1 --build-arg BUILDPACK=$2 -t "hackmdio/codimd:$DOCKER_TAG" -f "$CURRENT_DIR/Dockerfile" "$CURRENT_DIR/.."
 

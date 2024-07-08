@@ -411,6 +411,49 @@ Visibility.change(function (e, state) {
 
 // when page ready
 $(document).ready(function () {
+  var searchInput = $("#search-input");
+  var searchResults = $("#search-results");
+
+  searchInput.on("input", function () {
+    var query = searchInput.val().trim();
+
+    if (query.length > 0) {
+      $.ajax({
+        url: "/api/search",
+        method: "GET",
+        data: { q: query },
+        success: function (data) {
+          searchResults.empty();
+
+          data.forEach(function (note) {
+            var listItem = $("<li></li>");
+
+            var link = $("<a></a>")
+              .attr("href", "/" + note.shortid)
+              .attr("target", "_blank");
+
+            var title = $("<h3></h3>").text(note.title);
+            var content = $("<div></div>");
+            note.highlighted_content.forEach(function (highlight) {
+              var paragraph = $("<p></p>").html(highlight);
+              content.append(paragraph);
+            });
+
+            link.append(title).append(content);
+            listItem.append(link);
+
+            searchResults.append(listItem);
+          });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("error:", textStatus, errorThrown);
+        },
+      });
+    } else {
+      searchResults.empty();
+    }
+  });
+
   idle.checkAway()
   checkResponsive()
   // if in smaller screen, we don't need advanced scrollbar

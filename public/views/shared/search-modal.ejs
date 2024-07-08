@@ -1,0 +1,64 @@
+<!-- search modal -->
+<div
+    class="modal fade search-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="mySmallModalLabel">
+                    <i class="fa fa-search"></i> <%= __('Search') %>
+                </h4>
+            </div>
+            <div class="modal-body">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    class="form-control"
+                    placeholder="Enter keyword to search..."
+                />
+
+                <ul id="search-results" class="list-group mt-3"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .modal-xl {
+        width: 1140px;
+    }
+    @media (max-width: 1140px) {
+        .modal-xl {
+            width: 95%;
+        }
+    }
+    #search-results li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #808080;
+    }
+
+    #search-results a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .keyword {
+        color: #eda35e;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+</style>

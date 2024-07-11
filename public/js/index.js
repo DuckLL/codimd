@@ -433,13 +433,14 @@ $(document).ready(function () {
               .attr("target", "_blank");
 
             var title = $("<h3></h3>").text(note.title);
+            var lastchangeAt = $("<div></div>").text(moment(note.lastchangeAt).format('YYYY-MM-DD HH:mm')).css("float", "right");
             var content = $("<div></div>");
             note.highlighted_content.forEach(function (highlight) {
               var paragraph = $("<p></p>").html(highlight);
               content.append(paragraph);
             });
 
-            link.append(title).append(content);
+            link.append(lastchangeAt).append(title).append(content);
             listItem.append(link);
 
             searchResults.append(listItem);

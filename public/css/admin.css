@@ -1,0 +1,50 @@
+/* Flexbox container */
+.flex-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dee2e6; /* Bootstrap border color */
+  font-family: monospace;
+  font-size: medium;
+}
+.flex-table-header,
+.flex-table-row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #dee2e6; /* Border for rows */
+}
+.flex-table-row:nth-child(even) {
+  background-color: #111;
+}
+.flex-table-row:nth-child(odd) {
+  background-color: #222;
+}
+.flex-table-row:hover {
+  background-color: #000;
+}
+.flex-table-cell {
+  flex: 1;
+  padding: 8px;
+  overflow: hidden;
+  text-wrap: nowrap;
+}
+.flex-table-cell:hover {
+  text-wrap: balance;
+  word-break: break-word;
+}
+/* Specific column widths */
+.email-col {
+  max-width: 300px;
+}
+.createdat-col {
+  max-width: 600px;
+}
+.updatedat-col {
+  max-width: 600px;
+}
+.admin-col {
+  max-width: 100px;
+}
+.reset-col {
+  max-width: 200px;
+}
+

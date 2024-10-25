@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<%= getLocale() %>">
+    <head>
+        <%- include('index/head') %>
+        <link rel="stylesheet" href="<%- serverURL %>/css/admin.css" />
+    </head>
+    <body>
+        <h1 class="cover-heading"><i class="fa fa-file-text"></i> Admin Page</h1>
+
+        <div class="flex-table">
+            <div class="flex-table-header">
+                <div class="flex-table-cell email-col">Email</div>
+                <div class="flex-table-cell createdat-col">Created At</div>
+                <div class="flex-table-cell updatedad-col">Updated At</div>
+                <div class="flex-table-cell admin-col">Admin</div>
+                <div class="flex-table-cell reset-col">Reset Password</div>
+            </div>
+            <% users.forEach(function(user) { %>
+            <div class="flex-table-row" data-user-id="<%= user.id %>">
+                <div class="flex-table-cell email-col"><%= user.email %></div>
+                <div class="flex-table-cell createdat-col">
+                    <%= user.createdAt.toISOString() %>
+                </div>
+                <div class="flex-table-cell updatedad-col">
+                    <%= user.updatedAt.toISOString() %>
+                </div>
+                <div class="flex-table-cell admin-col">
+                    <% if (user.admin) { %>
+                    <label>Yes</label>
+                    <button
+                        type="button"
+                        class="btn btn-default glyphicon glyphicon-remove toggle-admin"
+                        data-admin="true"
+                    ></button>
+                    <% } else { %>
+                    <label>No</label>
+                    <button
+                        type="button"
+                        class="btn btn-default glyphicon glyphicon-ok toggle-admin"
+                        data-admin="false"
+                    ></button>
+                    <% } %>
+                </div>
+                <div class="flex-table-cell reset-col">
+                    <button
+                        type="button"
+                        class="btn btn-default glyphicon glyphicon-repeat reset-password"
+                    ></button>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <%- include('build/admin-pack-scripts') %>
+    </body>
+</html>

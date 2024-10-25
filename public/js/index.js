@@ -414,6 +414,10 @@ $(document).ready(function () {
   var searchInput = $("#search-input");
   var searchResults = $("#search-results");
 
+  $('.search-modal').on('shown.bs.modal', function () {
+    searchInput.focus().select();
+  });
+
   searchInput.on("input", function () {
     var query = searchInput.val().trim();
 

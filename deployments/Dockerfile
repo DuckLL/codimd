@@ -1,7 +1,7 @@
 ARG RUNTIME
 ARG BUILDPACK
 
-FROM $BUILDPACK as BUILD
+FROM $BUILDPACK AS build
 
 COPY --chown=hackmd:hackmd . .
 ENV QT_QPA_PLATFORM=offscreen
@@ -22,7 +22,7 @@ FROM $RUNTIME
 USER hackmd
 ENV QT_QPA_PLATFORM=offscreen
 WORKDIR /home/hackmd/app
-COPY --chown=1500:1500 --from=BUILD /home/hackmd/app .
+COPY --chown=1500:1500 --from=build /home/hackmd/app .
 RUN npm install --production && npm cache clean --force && rm -rf /tmp/{core-js-banners,phantomjs}
 EXPOSE 3000
 ENTRYPOINT ["/home/hackmd/app/docker-entrypoint.sh"]

@@ -34,3 +34,4 @@ public/uploads/*
 # private key
 deployments/server.*
 deployments/ca.*
+deployments/openssl.cnf

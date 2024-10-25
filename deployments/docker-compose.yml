@@ -18,6 +18,7 @@ services:
     #   dockerfile: ./deployments/Dockerfile
     environment:
       - CMD_DB_URL=postgres://codimd:change_password@database/codimd
+      - CMD_SESSION_SECRET="openssl rand -base64 32"
       - CMD_USECDN=false
       - CMD_ALLOW_FREEURL=true
       - CMD_AUTO_VERSION_CHECK=false

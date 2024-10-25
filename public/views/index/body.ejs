@@ -32,6 +32,9 @@
                                         <li><a href="<%- serverURL %>/features"><i class="fa fa-dot-circle-o fa-fw"></i> <%= __('Features') %></a></li>
                                         <li><a href="#" class="ui-export-user-data"><i class="fa fa-cloud-download fa-fw"></i> <%= __('Export user data') %></a></li>
                                         <li><a class="ui-delete-user" data-toggle="modal" data-target=".delete-user-modal"><i class="fa fa-trash fa-fw"></i> <%= __('Delete user') %></a></li>
+                                        <li><a class="ui-change-password" data-toggle="modal" data-target=".change-password-modal"><i class="fa fa-refresh fa-fw"></i>
+                                                <%= __('Change password') %>
+                                            </a></li>
                                         <li><a href="<%- serverURL %>/logout"><i class="fa fa-sign-out fa-fw"></i> <%= __('Sign Out') %></a></li>
                                     </ul>
                                 </span>
@@ -201,6 +204,56 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default ui-delete-user-modal-cancel" data-dismiss="modal"><%= __('Cancel') %></button>
                 <a type="button" class="btn btn-danger" href="<%- serverURL %>/me/delete/<%- deleteToken %>"><%= __('Yes, do it!') %></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- change password modal -->
+<div class="modal fade change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    <%= __('Change password') %>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="ui-delete-user-modal-msg">
+                    <%= __('Do you want to change your password?') %>
+                </h5>
+                <form data-toggle="validator" role="form" class="form-horizontal" method="post"
+                    enctype="application/x-www-form-urlencoded">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" name="password" placeholder="Old Password" required>
+                            <span class="help-block control-label with-errors" style="display: inline;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" name="newpassword" placeholder="New Password" required>
+                            <span class="help-block control-label with-errors" style="display: inline;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password" required>
+                            <span class="help-block control-label with-errors" style="display: inline;"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary" formaction="<%- serverURL %>/changepassword">
+                                <%= __('Change password') %>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

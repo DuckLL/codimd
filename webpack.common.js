@@ -246,7 +246,11 @@ module.exports = {
       "imports-loader?$=jquery!jquery-mousewheel",
       "bootstrap",
     ],
-    cover: ["babel-polyfill", path.join(__dirname, "public/js/cover.js")],
+    cover: [
+      "babel-polyfill",
+      path.join(__dirname, "public/js/cover.js"),
+      path.join(__dirname, "public/js/search.js"),
+    ],
     "cover-styles-pack": [
       path.join(__dirname, "node_modules/bootstrap/dist/css/bootstrap.min.css"),
       path.join(__dirname, "public/css/bootstrap-social.css"),
@@ -259,6 +263,7 @@ module.exports = {
       "expose-loader?select2!select2",
       "expose-loader?moment!moment",
       path.join(__dirname, "public/js/cover.js"),
+      path.join(__dirname, "public/js/search.js"),
     ],
     index: [
       "babel-polyfill",
@@ -272,6 +277,7 @@ module.exports = {
       "imports-loader?Raphael=raphael!js-sequence-diagrams",
       "expose-loader?RevealMarkdown!reveal-markdown",
       path.join(__dirname, "public/js/index.js"),
+      path.join(__dirname, "public/js/search.js"),
     ],
     "index-styles": [
       path.join(__dirname, "public/vendor/jquery-ui/jquery-ui.min.css"),
@@ -380,6 +386,7 @@ module.exports = {
       "expose-loader?RevealMarkdown!reveal-markdown",
       "expose-loader?L!leaflet",
       path.join(__dirname, "public/js/index.js"),
+      path.join(__dirname, "public/js/search.js"),
     ],
     pretty: [
       "babel-polyfill",

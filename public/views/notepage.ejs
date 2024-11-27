@@ -48,10 +48,9 @@
 
         <div class="flex-table">
             <div class="flex-table-header">
-                <div class="flex-table-cell createdat-col">Title</div>
-                <div class="flex-table-cell createdat-col">Alias</div>
+                <div class="flex-table-cell">Title</div>
+                <div class="flex-table-cell reset-col">Alias</div>
                 <div class="flex-table-cell reset-col">Owner</div>
-                <div class="flex-table-cell reset-col">Short ID</div>
                 <div class="flex-table-cell reset-col">Created At</div>
                 <div class="flex-table-cell reset-col">Updated At</div>
             </div>
@@ -61,16 +60,15 @@
                 target="_blank"
                 class="flex-table-row"
             >
-                <div class="flex-table-cell createdat-col">
+                <div class="flex-table-cell">
                     <%= note.title %>
                 </div>
-                <div class="flex-table-cell createdat-col">
+                <div class="flex-table-cell reset-col">
                     <%= note.alias %>
                 </div>
                 <div class="flex-table-cell reset-col">
                     <%= note.owner.email %>
                 </div>
-                <div class="flex-table-cell reset-col"><%= note.shortid %></div>
                 <div class="flex-table-cell reset-col">
                     <%= note.createdAt.toISOString().slice(0, 10) %>
                 </div>

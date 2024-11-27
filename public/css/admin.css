@@ -29,6 +29,7 @@
   text-wrap: nowrap;
   text-align: left;
   font-size: 1.2em;
+  border-right: 1px solid #fff;
 }
 .flex-table-cell:hover {
   text-wrap: balance;
